@@ -1,3 +1,7 @@
+v0.1.3
+==================
+* Updated shp.sh
+
 v0.1.2
 ==================
 * Updated to cool grays
