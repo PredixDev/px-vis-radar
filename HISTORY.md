@@ -1,3 +1,8 @@
+v2.1.3
+==================
+* fix for width resize issue when width is not the smallest side
+* fix for demo delete series
+
 v2.1.2
 ==================
 * fix issue where an axes couldn't be un muted from the register

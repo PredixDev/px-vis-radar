@@ -653,7 +653,7 @@ Custom property | Description | Default
     },
 
     observers: [
-      '_processSizing(width, margin, _smallerSide, _internalLabelMargin)',
+      '_processSizing(margin, _smallerSide, _internalLabelMargin)',
       '_calcCenter(_diameter)',
       '_generateSeriesConfig(dimensions, seriesConfig, categories.*, seriesKey, _haveChartData, dataVisColors, seriesColorOrder)',
       '_computeAxes(chartData.*,skipKeys.*)',
@@ -760,37 +760,30 @@ Custom property | Description | Default
     _processSizing: function(smallerSide) {
 
       if(this.displayedValues) {
-       // this.debounce('processSizing', function() {
+        var adjust = 0,
+            newMargin;
 
-          var adjust = 0,
-              newMargin;
+        //if width is not the lmiting factor try to extend it
+        if(this._smallerSide !== this.width) {
 
-          //if width is not the lmiting factor try to extend it
-          if(this._smallerSide !== this.width) {
+          //find out if we can extend the width
+          var wrapperRect = this.$.wrapper.getBoundingClientRect(),
+              registerRect = this.$.axisRegister.getBoundingClientRect(),
+              availableWidth = Math.max(0, wrapperRect.width - registerRect.width);
 
-            //find out if we can extend the width
-            var wrapperRect = this.$.wrapper.getBoundingClientRect(),
-                registerRect = this.$.axisRegister.getBoundingClientRect(),
-                availableWidth = Math.max(0, wrapperRect.width - registerRect.width);
+          adjust = Math.min(this._internalLabelMargin * 2, availableWidth - this._smallerSide);
+        }
 
-            //adjust available width if we're already extended
-            if(this._extendedWidth && availableWidth > 0) {
-              // availableWidth += Math.min(availableWidth, this._extendedWidth - this._smallerSide);
-            }
-            adjust = Math.min(this._internalLabelMargin * 2, availableWidth - this._smallerSide);
-          }
+        newMargin = {
+          top: this._internalCircleMargins.top,
+          bottom: this._internalCircleMargins.bottom,
+          left: this._internalLabelMargin - adjust/2,
+          right: this._internalLabelMargin - adjust/2
+        };
 
-          newMargin = {
-            top: this._internalCircleMargins.top,
-            bottom: this._internalCircleMargins.bottom,
-            left: this._internalLabelMargin - adjust/2,
-            right: this._internalLabelMargin - adjust/2
-          };
-
-          //extend width and recalculate internal margins for this adjustment
-          this.set('_extendedWidth', this._smallerSide + adjust);
-          this.set('_internalCircleMargins', newMargin);
-    //    }, 10);
+        //extend width and recalculate internal margins for this adjustment
+        this.set('_extendedWidth', this._smallerSide + adjust);
+        this.set('_internalCircleMargins', newMargin);
       }
     },
 

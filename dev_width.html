@@ -1,0 +1,76 @@
+<!doctype html>
+
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      px-vis-radar Demo</title>
+    <!-- Requires Webcomponents.js polyfill is provided by the page for browsers that don't support html imports -->
+    <script src="../webcomponentsjs/webcomponents-lite.min.js"></script>
+
+    <link rel="import" href="../px-theme/px-theme-styles.html">
+    <!-- <link rel="import" href="../px-dark-theme/px-dark-theme-styles.html"> -->
+
+    <style include="px-theme-styles" is="custom-style"></style>
+
+    <!-- Import custom element. Note: see comment about relative paths to dependencies in the *.html file referenced below -->
+    <link rel="import" href="../iron-ajax/iron-ajax.html"/>
+
+    <link rel="import" href="../px-vis/px-vis-chart-navigator.html" />
+    <link rel="import" href="../px-rangepicker/px-rangepicker.html" />
+    <link rel="import" href="px-vis-radar.html" />
+    <link rel="import" href="../px-slider/px-slider.html" />
+  </head>
+
+  <body>
+  <!-- <body style="padding:30px; background-color: rgb(27,42,51);"> -->
+
+
+    <h3>Radar Chart</h3>
+    <template is="dom-bind">
+      <br />
+      <br />
+      <br />
+      <h3>Radar Chart with 5 axes</h3>
+      <div id="test" style="height:1000px">
+        <px-vis-radar
+          id="chart"
+          width="1300"
+          height="550"
+          chart-data="[[chartData]]"
+          series-key="TimeStamp"
+          axes='["TTXD1_1", "TTXD1_2", "TTXD1_3", "TTXD1_4", "TTXD1_5"]'
+        ></px-vis-radar>
+      </div>
+
+      <iron-ajax
+        url="../px-demo-data/demo-data/apm/timeseries_demo.json"
+        handle-as="json"
+        auto
+        last-response="{{chartData}}">
+      </iron-ajax>
+
+    </template>
+  </body>
+  <script>
+    document.addEventListener('WebComponentsReady', function() {
+    });
+    function resize() {
+      document.getElementById('test').style.width = '1300px';
+      document.getElementById('chart').notifyResize();
+    }
+
+    function undo() {
+      document.getElementById('test').style.width = '2500px';
+      document.getElementById('chart').notifyResize();
+    }
+
+    function reset() {
+      document.getElementById('test').style.width = '1000px';
+      document.getElementById('chart').notifyResize();
+    }
+  </script>
+
+</html>
