@@ -654,7 +654,7 @@ Custom property | Description | Default
     },
 
     observers: [
-      '_processSizing(margin, _smallerSide, _internalLabelMargin)',
+      '_processSizing(margin, width, _smallerSide, _internalLabelMargin)',
       '_calcCenter(_diameter)',
       '_generateSeriesConfig(dimensions, seriesConfig, categories.*, seriesKey, _haveChartData, dataVisColors, seriesColorOrder)',
       '_computeAxes(chartData.*,skipKeys.*)',
@@ -729,6 +729,12 @@ Custom property | Description | Default
       }
     },
     _getExtendedCenter: function(_center, _extendedWidth) {
+
+      // for some reason, canvas needs to be redrawn if there is no change, so manually fire it in that case.
+      if(!this.renderToSvg && this.$$('#lineCanvas')) { //if no change and we need to refire canvas...
+        this.$$('#lineCanvas').set('_canvasRedraw', !this.$$('#lineCanvas')._canvasRedraw);
+      }
+
       return [this._center[0] + (this._extendedWidth - this._smallerSide)/2, this._center[1]];
     },
     _measureLabels: function() {
@@ -799,12 +805,6 @@ Custom property | Description | Default
 
       this.set('centerOffset', center);
       this.set('ticks', Math.round(this._diameter/100));
-
-      // for some reason, canvas needs to be redrawn if there is no change, so manually fire it in that case.
-      if(!this.renderToSvg && this.$$('#lineCanvas')) { //if no change and we need to refire canvas...
-        this.$$('#lineCanvas').set('_canvasRedraw', !this.$$('#lineCanvas')._canvasRedraw);
-      }
-
     },
 
     /**

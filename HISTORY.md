@@ -1,3 +1,7 @@
+v2.2.1
+==================
+* Fix issue where chart wouldn't redraw in canvas mode under certain width conditions
+
 v2.2.0
 ==================
 * Added useCategoryInTooltip so that if a series has a category it will display it instead of the axis name. The name can be configured through `name` for the appropriate category in `seriesConfig` or will be created
