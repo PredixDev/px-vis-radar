@@ -1,3 +1,7 @@
+v2.2.2
+==================
+* Ensure that when a category is muted it won't show up on hover
+
 v2.2.1
 ==================
 * Fix issue where chart wouldn't redraw in canvas mode under certain width conditions
