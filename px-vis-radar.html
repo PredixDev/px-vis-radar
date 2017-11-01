@@ -17,6 +17,7 @@
 <link rel="import" href="../px-vis/px-vis-cursor-line.html"/>
 <link rel="import" href="../px-vis/px-vis-highlight-line.html"/>
 <link rel="import" href="../px-vis/px-vis-highlight-line-canvas.html"/>
+<link rel="import" href="../px-vis/px-vis-annotations.html"/>
 <link rel="import" href="../app-localize-behavior/app-localize-behavior.html"/>
 
 
@@ -156,6 +157,17 @@ Custom property | Description
               width="[[_extendedWidth]]"
               height="[[_smallerSide]]"
               offset="[[_extendedCenter]]">
+                <px-vis-annotations
+                  id="annotations"
+                  slot="4"
+                  svg="[[svg]]"
+                  x="[[x]]"
+                  y="[[y]]"
+                  margin="[[margin]]"
+                  domain-changed="[[domainChanged]]"
+                  complete-series-config="[[completeSeriesConfig]]"
+                  annotation-data="[[annotationData]]">
+                </px-vis-annotations>
             </px-vis-svg-canvas>
           </div>
         </div>
@@ -420,7 +432,8 @@ Custom property | Description
     PxVisBehaviorChart.multiAxisMuting,
     PxVisBehaviorChart.multiAxisZoom,
     PxVisBehavior.brushDomains,
-    PxVisBehaviorChart.useCategoryInTooltip
+    PxVisBehaviorChart.useCategoryInTooltip,
+    PxVisBehavior.annotationData
   ],
 
     /**
@@ -659,7 +672,8 @@ Custom property | Description
       'px-vis-muted-series-updated': '_muteUnmute',
       "px-data-vis-colors-applied" : '_generateSeriesConfig',
 
-      'px-vis-axis-interaction-space-extents-data': '_setExtentsData'
+      'px-vis-axis-interaction-space-extents-data': '_setExtentsData',
+      'px-vis-drag-dimension-swapped' : '_axisDragged'
     },
 
     /*
@@ -1163,6 +1177,10 @@ Custom property | Description
       if(this.hardMute === true) {
         this._generateChartExtents();
       }
-    }
+    },
+
+    _axisDragged: function() {
+      this.$.annotations.set('forceRecalc', !this.$.annotations.forceRecalc);
+    },
   });
 </script>
