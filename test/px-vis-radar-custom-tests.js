@@ -48,7 +48,7 @@ function runCustomTests() {
         basicRadar.removeEventListener('px-vis-chart-canvas-rendering-ended', rendered);
         setTimeout(function() { done(); }, 2000);
       };
-
+      basicRadar = document.getElementById('basicRadar');
       basicRadar.addEventListener('px-vis-chart-canvas-rendering-ended', rendered);
 
       basicRadar.set('width',w);
@@ -167,7 +167,7 @@ function runCustomTests() {
             "yAxisUnit": "bofs"
           }
         };
-
+        basicRadar = document.getElementById('basicRadar');
       basicRadar.set('seriesConfig',seriesConfig);
 
       setTimeout(function(){ done(); }, 500);
@@ -215,7 +215,7 @@ function runCustomTests() {
       var muted = {
         'y': true
       };
-
+      basicRadar = document.getElementById('basicRadar');
       delete basicRadar.seriesConfig.x;
 
       basicRadar.set('mutedAxes',muted);
@@ -264,7 +264,7 @@ function runCustomTests() {
       var muted = {
         'y': false
       };
-
+      basicRadar = document.getElementById('basicRadar');
       basicRadar.set('mutedAxes',muted);
 
       setTimeout(function(){done()},250);
@@ -308,6 +308,7 @@ function runCustomTests() {
     var basicRadar = document.getElementById('basicRadar');
 
     suiteSetup(function(done){
+      basicRadar = document.getElementById('basicRadar');
       basicRadar.addToMutedAxes('y1');
       setTimeout(function(){done()},250);
     });
@@ -350,7 +351,7 @@ function runCustomTests() {
     var basicRadar = document.getElementById('basicRadar');
 
     suiteSetup(function(done){
-
+      basicRadar = document.getElementById('basicRadar');
       basicRadar.removeFromMutedAxes('y1');
 
       setTimeout(function(){done()},250);
@@ -394,7 +395,7 @@ function runCustomTests() {
     var basicRadar = document.getElementById('basicRadar');
 
     suiteSetup(function(done){
-
+      basicRadar = document.getElementById('basicRadar');
       basicRadar.set('chartExtents', {"y": [20,50]});
 
       setTimeout(function(){done()},250);
@@ -454,7 +455,7 @@ function runCustomTests() {
           }
         ],
         dim = ['y','y1','y2','y3','y4'];
-
+        basicRadar = document.getElementById('basicRadar');
       basicRadar.set('axes',dim);
       basicRadar.set('chartData',d);
 
@@ -500,6 +501,7 @@ function runCustomTests() {
     var basicRadar = document.getElementById('basicRadar');
 
     suiteSetup(function(done){
+      basicRadar = document.getElementById('basicRadar');
       basicRadar.addToMutedAxes(['y1','y3']);
       setTimeout(function(){done()},250);
     });
@@ -542,7 +544,7 @@ function runCustomTests() {
     var basicRadar = document.getElementById('basicRadar');
 
     suiteSetup(function(done){
-
+      basicRadar = document.getElementById('basicRadar');
       basicRadar.removeFromMutedAxes(['y1','y3']);
 
       setTimeout(function(){done()},250);
@@ -624,7 +626,7 @@ function runCustomTests() {
         basicRadar.removeEventListener('px-vis-chart-canvas-rendering-ended', rendered);
         done();
       };
-
+      basicRadar = document.getElementById('basicRadar');
       basicRadar.addEventListener('px-vis-chart-canvas-rendering-ended', rendered);
 
       basicRadar.set('axes',dim);
@@ -727,7 +729,7 @@ function runCustomTests() {
         setTimeout(function() { done(); }, 2000);
 
       };
-
+      fromDataRadar = document.getElementById('fromDataRadar');
       fromDataRadar.addEventListener('px-vis-chart-canvas-rendering-ended', rendered);
 
       fromDataRadar.set('width',w);
@@ -867,7 +869,7 @@ function runCustomTests() {
           }
         ],
         dim = ['y','y1','y2','y3','y4'];
-
+      fromDataRadar = document.getElementById('fromDataRadar');
       fromDataRadar.set('chartData',d);
 
       setTimeout(function(){done()}, 1000);
@@ -939,7 +941,7 @@ function runCustomTests() {
             'y4': 35
           }
         ];
-
+        fromDataRadar = document.getElementById('fromDataRadar');
       fromDataRadar.set('chartData',d);
 
       setTimeout(function() { done(); }, 1000);
