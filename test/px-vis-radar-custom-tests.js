@@ -77,7 +77,7 @@ function runCustomTests() {
 
     test('basicRadar completeSeriesConfig', function() {
       assert.isObject(basicRadar.completeSeriesConfig.x);
-      assert.equal(basicRadar.completeSeriesConfig.x.color, 'rgb(90,191,248)');
+      assert.equal(basicRadar.completeSeriesConfig.x.color.replace(' ',''), 'rgb(90,191,248)');
       assert.equal(basicRadar.completeSeriesConfig.x.name, 'x');
       assert.deepEqual(basicRadar.completeSeriesConfig.x.x, ['y','y1','y2','y3']);
       assert.deepEqual(basicRadar.completeSeriesConfig.x.y, ['y','y1','y2','y3']);
@@ -175,7 +175,7 @@ function runCustomTests() {
 
     test('basicRadar completeSeriesConfig', function() {
       assert.isObject(basicRadar.completeSeriesConfig.x);
-      assert.equal(basicRadar.completeSeriesConfig.x.color, 'rgb(255,0,0)');
+      assert.equal(basicRadar.completeSeriesConfig.x.color.replace(' ',''), 'rgb(255,0,0)');
       assert.equal(basicRadar.completeSeriesConfig.x.name, 'x');
       assert.deepEqual(basicRadar.completeSeriesConfig.x.x, ['y','y1','y2','y3']);
       assert.deepEqual(basicRadar.completeSeriesConfig.x.y, ['y','y1','y2','y3']);
@@ -233,7 +233,7 @@ function runCustomTests() {
 
     test('basicRadar completeSeriesConfig', function() {
       assert.isObject(basicRadar.completeSeriesConfig.x);
-      assert.equal(basicRadar.completeSeriesConfig.x.color, 'rgb(90,191,248)');
+      assert.equal(basicRadar.completeSeriesConfig.x.color.replace(' ',''), 'rgb(90,191,248)');
       assert.equal(basicRadar.completeSeriesConfig.x.name, 'x');
       assert.deepEqual(basicRadar.completeSeriesConfig.x.x, ['y1','y2','y3']);
       assert.deepEqual(basicRadar.completeSeriesConfig.x.y, ['y1','y2','y3']);
@@ -280,7 +280,7 @@ function runCustomTests() {
 
     test('basicRadar completeSeriesConfig', function() {
       assert.isObject(basicRadar.completeSeriesConfig.x);
-      assert.equal(basicRadar.completeSeriesConfig.x.color, 'rgb(90,191,248)');
+      assert.equal(basicRadar.completeSeriesConfig.x.color.replace(' ',''), 'rgb(90,191,248)');
       assert.equal(basicRadar.completeSeriesConfig.x.name, 'x');
       assert.deepEqual(basicRadar.completeSeriesConfig.x.x, ['y','y1','y2','y3']);
       assert.deepEqual(basicRadar.completeSeriesConfig.x.y, ['y','y1','y2','y3']);
@@ -323,7 +323,7 @@ function runCustomTests() {
 
     test('basicRadar completeSeriesConfig', function() {
       assert.isObject(basicRadar.completeSeriesConfig.x);
-      assert.equal(basicRadar.completeSeriesConfig.x.color, 'rgb(90,191,248)');
+      assert.equal(basicRadar.completeSeriesConfig.x.color.replace(' ',''), 'rgb(90,191,248)');
       assert.equal(basicRadar.completeSeriesConfig.x.name, 'x');
       assert.deepEqual(basicRadar.completeSeriesConfig.x.x, ['y','y2','y3']);
       assert.deepEqual(basicRadar.completeSeriesConfig.x.y, ['y','y2','y3']);
@@ -367,7 +367,7 @@ function runCustomTests() {
 
     test('basicRadar completeSeriesConfig', function() {
       assert.isObject(basicRadar.completeSeriesConfig.x);
-      assert.equal(basicRadar.completeSeriesConfig.x.color, 'rgb(90,191,248)');
+      assert.equal(basicRadar.completeSeriesConfig.x.color.replace(' ',''), 'rgb(90,191,248)');
       assert.equal(basicRadar.completeSeriesConfig.x.name, 'x');
       assert.deepEqual(basicRadar.completeSeriesConfig.x.x, ['y','y1','y2','y3']);
       assert.deepEqual(basicRadar.completeSeriesConfig.x.y, ['y','y1','y2','y3']);
@@ -465,7 +465,7 @@ function runCustomTests() {
 
     test('basicRadar completeSeriesConfig', function() {
       assert.isObject(basicRadar.completeSeriesConfig.x);
-      assert.equal(basicRadar.completeSeriesConfig.x.color, 'rgb(90,191,248)');
+      assert.equal(basicRadar.completeSeriesConfig.x.color.replace(' ',''), 'rgb(90,191,248)');
       assert.equal(basicRadar.completeSeriesConfig.x.name, 'x');
       assert.deepEqual(basicRadar.completeSeriesConfig.x.x, ['y','y1','y2','y3','y4']);
       assert.deepEqual(basicRadar.completeSeriesConfig.x.y, ['y','y1','y2','y3','y4']);
@@ -516,7 +516,7 @@ function runCustomTests() {
 
     test('basicRadar completeSeriesConfig', function() {
       assert.isObject(basicRadar.completeSeriesConfig.x);
-      assert.equal(basicRadar.completeSeriesConfig.x.color, 'rgb(90,191,248)');
+      assert.equal(basicRadar.completeSeriesConfig.x.color.replace(' ',''), 'rgb(90,191,248)');
       assert.equal(basicRadar.completeSeriesConfig.x.name, 'x');
       assert.deepEqual(basicRadar.completeSeriesConfig.x.x, ['y','y2','y4']);
       assert.deepEqual(basicRadar.completeSeriesConfig.x.y, ['y','y2','y4']);
@@ -560,7 +560,7 @@ function runCustomTests() {
 
     test('basicRadar completeSeriesConfig', function() {
       assert.isObject(basicRadar.completeSeriesConfig.x);
-      assert.equal(basicRadar.completeSeriesConfig.x.color, 'rgb(90,191,248)');
+      assert.equal(basicRadar.completeSeriesConfig.x.color.replace(' ',''), 'rgb(90,191,248)');
       assert.equal(basicRadar.completeSeriesConfig.x.name, 'x');
       assert.deepEqual(basicRadar.completeSeriesConfig.x.x, ['y','y1','y2','y3','y4']);
       assert.deepEqual(basicRadar.completeSeriesConfig.x.y, ['y','y1','y2','y3','y4']);
@@ -635,7 +635,7 @@ function runCustomTests() {
 
     test('basicRadar completeSeriesConfig', function() {
       assert.isObject(basicRadar.completeSeriesConfig.x);
-      assert.equal(basicRadar.completeSeriesConfig.x.color, 'rgb(90,191,248)');
+      assert.equal(basicRadar.completeSeriesConfig.x.color.replace(' ',''), 'rgb(90,191,248)');
       assert.equal(basicRadar.completeSeriesConfig.x.name, 'x');
       assert.deepEqual(basicRadar.completeSeriesConfig.x.x, ['y','y1','y3','y4']);
       assert.deepEqual(basicRadar.completeSeriesConfig.x.y, ['y','y1','y3','y4']);
@@ -757,7 +757,7 @@ function runCustomTests() {
 
     test('fromDataRadar completeSeriesConfig', function() {
       assert.isObject(fromDataRadar.completeSeriesConfig.x);
-      assert.equal(fromDataRadar.completeSeriesConfig.x.color, 'rgb(90,191,248)');
+      assert.equal(fromDataRadar.completeSeriesConfig.x.color.replace(' ',''), 'rgb(90,191,248)');
       assert.equal(fromDataRadar.completeSeriesConfig.x.name, 'x');
       assert.deepEqual(fromDataRadar.completeSeriesConfig.x.x, ['y','y1','y2','y3']);
       assert.deepEqual(fromDataRadar.completeSeriesConfig.x.y, ['y','y1','y2','y3']);
@@ -878,7 +878,7 @@ function runCustomTests() {
 
     test('fromDataRadar completeSeriesConfig', function() {
       assert.isObject(fromDataRadar.completeSeriesConfig.x);
-      assert.equal(fromDataRadar.completeSeriesConfig.x.color, 'rgb(90,191,248)');
+      assert.equal(fromDataRadar.completeSeriesConfig.x.color.replace(' ',''), 'rgb(90,191,248)');
       assert.equal(fromDataRadar.completeSeriesConfig.x.name, 'x');
       assert.deepEqual(fromDataRadar.completeSeriesConfig.x.x, ['y','y1','y2','y3','y4']);
       assert.deepEqual(fromDataRadar.completeSeriesConfig.x.y, ['y','y1','y2','y3','y4']);
@@ -950,7 +950,7 @@ function runCustomTests() {
 
     test('fromDataRadar completeSeriesConfig', function() {
       assert.isObject(fromDataRadar.completeSeriesConfig.x);
-      assert.equal(fromDataRadar.completeSeriesConfig.x.color, 'rgb(90,191,248)');
+      assert.equal(fromDataRadar.completeSeriesConfig.x.color.replace(' ',''), 'rgb(90,191,248)');
       assert.equal(fromDataRadar.completeSeriesConfig.x.name, 'x');
       assert.deepEqual(fromDataRadar.completeSeriesConfig.x.x, ['y','y1','y4']);
       assert.deepEqual(fromDataRadar.completeSeriesConfig.x.y, ['y','y1','y4']);
