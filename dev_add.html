@@ -24,127 +24,151 @@ limitations under the License.
     <title>
       px-vis-radar Demo</title>
     <!-- Requires Webcomponents.js polyfill is provided by the page for browsers that don't support html imports -->
-    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
 
-    <link rel="import" href="../px-theme/px-theme-styles.html">
+    <script type="module" src="../px-theme/px-theme-styles.js"></script>
     <!-- <link rel="import" href="../px-dark-theme/px-dark-theme-styles.html"> -->
 
-    <custom-style>
+    <!-- FIXME(polymer-modulizer):
+        These imperative modules that innerHTML your HTML are
+        a hacky way to be sure that any mixins in included style
+        modules are ready before any elements that reference them are
+        instantiated, otherwise the CSS @apply mixin polyfill won't be
+        able to expand the underlying CSS custom properties.
+        See: https://github.com/Polymer/polymer-modulizer/issues/154
+        -->
+    <script type="module">
+const $_documentContainer = document.createElement('template');
+
+$_documentContainer.innerHTML = `<custom-style>
       <style include="px-theme-styles" is="custom-style"></style>
-    </custom-style>
+    </custom-style>`;
+
+document.body.appendChild($_documentContainer.content);
+</script>
 
     <!-- Import custom element. Note: see comment about relative paths to dependencies in the *.html file referenced below -->
-    <link rel="import" href="../iron-ajax/iron-ajax.html"/>
+    <script type="module" src="../@polymer/iron-ajax/iron-ajax.js"></script>ment.createElement('template');
+$_documentContainer.innerHTML = `<link rel="import" href="../iron-ajax/iron-ajax.html">`;
+document.body.appendChild($_documentContainer.content);
+</script>
 
-    <link rel="import" href="../px-vis/px-vis-chart-navigator.html" />
-    <link rel="import" href="../px-rangepicker/px-rangepicker.html" />
-    <link rel="import" href="px-vis-radar.html" />
-    <link rel="import" href="../px-slider/px-slider.html" />
+    <script type="module">
+const $_documentContainer = document.createElement('template');
+$_documentContainer.innerHTML = `<link rel="import" href="../px-vis/px-vis-chart-navigator.html">`;
+document.body.appendChild($_documentContainer.content);
+</script>script>
+    <script type="module">
+const $_documentContainer = document.createElement('template');
+$_documentContainer.innerHTML = `<link rel="import" href="../px-rangepicker/px-rangepicker.html">`;
+document.body.appendChild($_documentContainer.content);
+</script>
+    <script type="module">
+const $_documentContainer = document.createElement('template');
+$_documentContainer.innerHTML = `<link rel="import" href="px-vis-radar.html">`;
+document.body.appendChild($_documentContainer.content);
+</script></script>
+    <script type="module">
+const $_documentContainer = document.createElement('template');
+$_documentContainer.innerHTML = `<link rel="import" href="../px-slider/px-slider.html">`;
+document.body.appendChild($_documentContainer.content);
+</script>script>
   </head>
 
   <body>
   <!-- <body style="padding:30px; background-color: rgb(27,42,51);"> -->
 
 
-    <h3>Radar Chart</h3>
-    <dom-bind>
+    <script type="module">
+const $_documentContainer = document.createElement('template');
+$_documentContainer.innerHTML = `<h3>Radar Chart</h3>`;
+document.body.appendChild($_documentContainer.content);
+</script>
+    <script type="module">
+const $_documentContainer = document.createElement('template');
+
+$_documentContainer.innerHTML = `<dom-bind>
     <template is="dom-bind">
       <div id="bigdiv" style="height:800px">
         <button id="btn">add</button>
         <button id="btnR">remove</button>
         <h3>Radar Chart linked with a rangepicker and navigator</h3>
-        <px-rangepicker
-          id="rangepicker"
-          range="{{range}}"
-          date-format="YYYY/MM/DD"
-          time-format="hh:mm:ss A"
-          show-buttons="true"
-          show-time-zone="text">
+        <px-rangepicker id="rangepicker" range="{{range}}" date-format="YYYY/MM/DD" time-format="hh:mm:ss A" show-buttons="true" show-time-zone="text">
         </px-rangepicker>
 
-        <br />
+        <br>
 
-        <px-vis-radar
-          id="parall"
-          height="800"
-show-tooltip
-          chart-data="[[chartData]]"
-          skip-keys='{"UnitNumber":true,"DLN_MODE":true}'
-          series-key="TimeStamp"
-          tooltip-config='{
-            "tooltipStyle": "light",
-            "forceDateTimeDisplay": true
-          }'
-          selected-domain="{{selectedDomain}}"
-          generate-axes-from-data
-          brush-to-remove
-          truncation-length="200"
-          series-config='{
-              "TTXD1_1":{
-                "yAxisUnit": "Hz",
-                "title": "verylongnasdasdame"
+        <px-vis-radar id="parall" height="800" show-tooltip="" chart-data="[[chartData]]" skip-keys="{&quot;UnitNumber&quot;:true,&quot;DLN_MODE&quot;:true}" series-key="TimeStamp" tooltip-config="{
+            &quot;tooltipStyle&quot;: &quot;light&quot;,
+            &quot;forceDateTimeDisplay&quot;: true
+          }" selected-domain="{{selectedDomain}}" generate-axes-from-data="" brush-to-remove="" truncation-length="200" series-config="{
+              &quot;TTXD1_1&quot;:{
+                &quot;yAxisUnit&quot;: &quot;Hz&quot;,
+                &quot;title&quot;: &quot;verylongnasdasdame&quot;
               },
-              "TTXD1_12":{
-                "yAxisUnit": "F",
-                "title": "stout"
+              &quot;TTXD1_12&quot;:{
+                &quot;yAxisUnit&quot;: &quot;F&quot;,
+                &quot;title&quot;: &quot;stout&quot;
               }
-            }'>
+            }">
         </px-vis-radar>
 
-        <iron-ajax
-          url="../px-demo-data/demo-data/apm/timeseries_demo.json"
-          handle-as="json"
-          auto
-          last-response="{{chartData}}">
+        <iron-ajax url="../px-demo-data/demo-data/apm/timeseries_demo.json" handle-as="json" auto="" last-response="{{chartData}}">
         </iron-ajax>
       </div>
     </template>
-  </dom-bind>
+  </dom-bind>`;
+
+document.body.appendChild($_documentContainer.content);
+</script>
   </body>
-  <script>
-    document.addEventListener('WebComponentsReady', function() {
-      var chart = document.getElementById('parall'),
-          rangepicker = document.getElementById('rangepicker'),
-          btnSnap = document.getElementById('btnSnap'),
-          parall = document.getElementById('parall'),
-          navigator = document.getElementById('navigator'),
-          btn = document.getElementById('btn'),
-          btnR = document.getElementById('btnR'),
-          bigdiv = document.getElementById('bigdiv');
+  <script type="module">
+import 'px-theme/px-theme-styles.js';
+import '@polymer/iron-ajax/iron-ajax.js';
+import 'px-vis/px-vis-chart-navigator.js';
+import './px-vis-radar.js';
+import 'px-slider/px-slider.js';
+import { dom } from '@polymer/polymer/lib/legacy/polymer.dom.js';
+var chart = document.getElementById('parall'),
+    rangepicker = document.getElementById('rangepicker'),
+    btnSnap = document.getElementById('btnSnap'),
+    parall = document.getElementById('parall'),
+    navigator = document.getElementById('navigator'),
+    btn = document.getElementById('btn'),
+    btnR = document.getElementById('btnR'),
+    bigdiv = document.getElementById('bigdiv');
 
-      rangepicker.range = {"from":"2016-06-22T15:08:00Z","to":"2016-06-22T20:08:00.000Z"};
+rangepicker.range = {"from":"2016-06-22T15:08:00Z","to":"2016-06-22T20:08:00.000Z"};
 
-      btn.addEventListener('click', function() {
-        var newDiv = document.createElement('div'),
-            newChart;
+btn.addEventListener('click', function() {
+  var newDiv = document.createElement('div'),
+      newChart;
 
-        for(var i=0; i<1; i++) {
-          newDiv.classList.add('divwrapper');
+  for(var i=0; i<1; i++) {
+    newDiv.classList.add('divwrapper');
 
-          newChart = document.createElement('px-vis-radar');
-          newChart.generateAxesFromData = true;
-          newChart.preventResize = true;
-          newChart.chartData = chart.chartData;
-          newChart.seriesConfig = chart.seriesConfig;
-          newChart.height = chart.height;
-          newChart.margin = chart.margin;
-          newChart.width = chart.width;
-          newChart.skipKeys = chart.skipKeys;
-          newChart.seriesKey = chart.seriesKey;
-          newChart.selectedDomain = chart.selectedDomain
-          Polymer.dom(newDiv).appendChild(newChart);
-        }
+    newChart = document.createElement('px-vis-radar');
+    newChart.generateAxesFromData = true;
+    newChart.preventResize = true;
+    newChart.chartData = chart.chartData;
+    newChart.seriesConfig = chart.seriesConfig;
+    newChart.height = chart.height;
+    newChart.margin = chart.margin;
+    newChart.width = chart.width;
+    newChart.skipKeys = chart.skipKeys;
+    newChart.seriesKey = chart.seriesKey;
+    newChart.selectedDomain = chart.selectedDomain
+    dom(newDiv).appendChild(newChart);
+  }
 
-        Polymer.dom(bigdiv).appendChild(newDiv);
-      });
+  dom(bigdiv).appendChild(newDiv);
+});
 
-      btnR.addEventListener('click', function() {
-        var wrappers = document.getElementsByClassName('divwrapper');
-        Polymer.dom(bigdiv).removeChild(wrappers[wrappers.length - 1]);
+btnR.addEventListener('click', function() {
+  var wrappers = document.getElementsByClassName('divwrapper');
+  dom(bigdiv).removeChild(wrappers[wrappers.length - 1]);
 
-      });
-
-    });
-  </script>
+});
+</script>
 
 </html>
